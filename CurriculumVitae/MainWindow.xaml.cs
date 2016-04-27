@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CurriculumVitae.ViewModels;
 
 namespace CurriculumVitae
 {
@@ -20,12 +21,19 @@ namespace CurriculumVitae
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainWindowVM _vm;
+        private MainWindowVM _vm;
 
         public MainWindow()
         {
-            _vm = new MainWindowVM();
             InitializeComponent();
+            Loaded += Window_Loaded;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _vm = new MainWindowVM();
+            _vm.LoadData();
+            DataContext = _vm;
         }
     }
 }

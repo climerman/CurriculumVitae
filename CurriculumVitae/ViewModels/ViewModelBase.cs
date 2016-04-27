@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using CurriculumVitae.Annotations;
 
-namespace CurriculumVitae
+namespace CurriculumVitae.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
