@@ -64,9 +64,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\CVViewVM.cs" />
+    <Compile Include="Views\CVEdit.xaml.cs">
+      <DependentUpon>CVEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CVView.xaml.cs">
+      <DependentUpon>CVView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="Assets\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CVEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CVView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,6 +131,14 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{edb928b7-cfca-48da-b7ef-63a11ad98454}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{0568de0d-0440-480e-a0d5-0ed557f52d18}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{34a009fe-2c48-463f-b0ea-51d9e15d3ec8}</Project>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

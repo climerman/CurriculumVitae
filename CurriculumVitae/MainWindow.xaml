@@ -4,17 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurriculumVitae"
+        xmlns:vm="clr-namespace:CurriculumVitae.ViewModels"
+        xmlns:view="clr-namespace:CurriculumVitae.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:CVViewVM}">
+            <view:CVView/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <DockPanel>
-        <WrapPanel x:Name="PanelMenu" DockPanel.Dock="Top">
+        <WrapPanel x:Name="PanelMenu" DockPanel.Dock="Top" Height="25">
             <Button x:Name="BtnCreate" Content="Create"/>
             <Button x:Name="BtnEdit" Content="Edit"/>
             <Button x:Name="BtnAbout" Content="About"/>
             <Button x:Name="Exit" Content="Exit"/>
         </WrapPanel>
 
-        <ListBox x:Name="ListCurriculums" DockPanel.Dock="Left" MinWidth="100"
+        <ListBox x:Name="ListCurriculums" DockPanel.Dock="Left" Width="100"
                  ItemsSource="{Binding PersonItems}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -25,45 +33,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ScrollViewer>
-            <Grid x:Name ="ViewContent" Visibility="Visible" DataContext="{Binding ElementName = ListCurriculums, Path = SelectedItem}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100*"/>
-                    <ColumnDefinition Width="200*"/>
-                    <ColumnDefinition Width="100*"/>
-                </Grid.ColumnDefinitions>
-                <Label x:Name="labelName" Content="Name: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,0,10,0" Height="25"/>
-                <Label x:Name="labelSex" Content="Sex: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,26,10,0" Height="25"/>
-                <Label x:Name="labelDoB" Content="Date of Birth: " HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0" Margin="0,51,10,11" Height="25"/>
-                <TextBlock x:Name="txtViewName" Text="{Binding FirstLastname}"  HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-                <TextBlock x:Name="txtViewSex" Text="{Binding Sex}"  HorizontalAlignment="Left" Margin="10,31,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-                <TextBlock x:Name="txtViewDoB" Text="{Binding BirthDate}"  HorizontalAlignment="Left" Margin="10,56,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-                <Label x:Name="labelContact" Content="Contact: " HorizontalAlignment="Left" Margin="33,0,0,0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.158,-0.077"/>
-                <ScrollViewer Grid.Column="1" Grid.Row="1">
-                    <ListView x:Name="listView" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="183"
-                              ItemsSource="{Binding ContactItems}">
-                        <ListView.View>
-                            <GridView>
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style>
-                                        <Setter Property="FrameworkElement.Visibility" Value="Collapsed"/>
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
-                                <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding Path=ContactValue}"/>
-                                <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Path=ContactType.ContactTypeName}"/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </ScrollViewer>
-
-            </Grid>
+        <ScrollViewer Height="Auto" Width="Auto">
+            <ContentControl x:Name="ContentControl" 
+                            Content="{Binding CurrentView}"/>
         </ScrollViewer>
     </DockPanel>
 </Window>

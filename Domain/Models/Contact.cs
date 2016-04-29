@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BLL.Models
+namespace Domain.Models
 {
     public class Contact
     {
@@ -9,10 +9,10 @@ namespace BLL.Models
 
         [ForeignKey(nameof(ContactType))]
         public int ContactTypeId { get; set; }
-        public ContactType ContactType { get; set; }
+        public virtual ContactType ContactType { get; set; }
 
         [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
-        public Person Person { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

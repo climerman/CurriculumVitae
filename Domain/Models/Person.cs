@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BLL.Models
+namespace Domain.Models
 {
     public class Person
     {
@@ -11,10 +11,10 @@ namespace BLL.Models
         public Sex? Sex { get; set; }
         public DateTime? BirthDate { get; set; }
 
-        public List<Contact> Contacts { get; set; }
-        public List<Education> Educations { get; set; }
-        public List<Experience> Experiences { get; set; }
-        public List<Skill> Skills { get; set; }
+        public virtual List<Contact> Contacts { get; set; }
+        public virtual List<Education> Educations { get; set; }
+        public virtual List<Experience> Experiences { get; set; }
+        public virtual List<Skill> Skills { get; set; }
 
         public string FirstLastname => Firstname + " " + Lastname;
     }

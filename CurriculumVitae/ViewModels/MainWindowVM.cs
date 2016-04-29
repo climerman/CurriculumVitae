@@ -1,13 +1,16 @@
-﻿using System.Collections.ObjectModel;
-using BLL.Models;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using BLL;
 using BLL.Services;
+using Domain.Models;
 
 namespace CurriculumVitae.ViewModels
 {
     public class MainWindowVM : ViewModelBase
     {
         private ObservableCollection<Person> _personItems;
-        private ObservableCollection<Contact> _contactItems; 
+        private IPersonService _personService;
+        private ViewModelBase _currentView;
 
         /// <summary>
         /// Observable list of PersonItems
@@ -22,21 +25,20 @@ namespace CurriculumVitae.ViewModels
             }
         }
 
-        public ObservableCollection<Contact> ContactItems
+        public ViewModelBase CurrentView
         {
-            get
-            {
-                return _contactItems;
-            }
+            get { return _currentView; }
             set
             {
-                _contactItems = value;
-                OnPropertyChanged(nameof(ContactItems));
+                _currentView = value;
+                OnPropertyChanged(nameof(CurrentView));
             }
         }
 
         public MainWindowVM()
         {
+            _currentView = new CVViewVM();
+            _personService = new PersonService();
             _personItems = new ObservableCollection<Person>();
         }
 
@@ -53,12 +55,23 @@ namespace CurriculumVitae.ViewModels
                 Firstname = "Ester",
                 Lastname = "Tester",
                 Sex = Sex.Female,
+                Contacts = new List<Contact>()
+                {
+                    new Contact()
+                    {
+                        ContactValue = "skype123",
+                        ContactType = new ContactType()
+                        {
+                            ContactTypeName = "Skype"
+                        }
+                    }
+                }
             });
         }
 
         private void LoadPersons()
         {
-            PersonService.GetPersons();
+            _personService.GetAll();
         }
     }
 }
