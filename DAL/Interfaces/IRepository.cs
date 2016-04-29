@@ -1,4 +1,6 @@
-﻿namespace DAL.Interfaces
+﻿using System.Collections.Generic;
+
+namespace DAL.Interfaces
 {
     public interface IRepository<T> where T: class
     {
@@ -6,7 +8,7 @@
 
         void Add(T obj);
 
-        T GetAll();
+        List<T> GetAll();
         T Get(int id);
 
         void Update(T obj);

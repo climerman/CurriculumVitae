@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
 using DAL.Interfaces;
 
 namespace DAL.Repositories
@@ -18,7 +21,15 @@ namespace DAL.Repositories
 
         public void Add(T obj)
         {
-            throw new NotImplementedException();
+            DbEntityEntry dbEntityEntry = DbContext.Entry(obj);
+            if (dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
+            else
+            {
+                DbSet.Add(obj);
+            }
         }
 
         public void Delete(T obj)
@@ -31,19 +42,18 @@ namespace DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public T Get(int id) => DbSet.Find(id);
 
-        public T GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public List<T> GetAll() => DbSet.ToList();
 
         public void Update(T obj)
         {
-            throw new NotImplementedException();
+            DbEntityEntry dbEntityEntry = DbContext.Entry(obj);
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                DbSet.Attach(obj);
+            }
+            dbEntityEntry.State = EntityState.Modified;
         }
     }
 }
