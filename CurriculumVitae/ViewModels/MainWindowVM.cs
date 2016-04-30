@@ -43,10 +43,12 @@ namespace CurriculumVitae.ViewModels
             _personItems = new ObservableCollection<Person>();
         }
 
+        /// <summary>
+        /// Load data to fill PersonItems
+        /// </summary>
         public void LoadData()
         {
             _personItems = new ObservableCollection<Person>(_personService.LoadPersons());
-            CreateMockData();
         }
 
         private void CreateMockData()

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
@@ -7,7 +8,7 @@ namespace DAL.Interfaces
         //Repository CRUD interface.
 
         void Add(T obj);
-
+        
         List<T> GetAll();
         T Get(int id);
 

@@ -7,7 +7,8 @@
         xmlns:vm="clr-namespace:CurriculumVitae.ViewModels"
         xmlns:view="clr-namespace:CurriculumVitae.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="650" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="500" Width="650" Loaded="Window_Loaded" ResizeMode="CanMinimize"
+        Style="{StaticResource DefaultWindowStyle}">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:CVViewVM}">
             <view:CVView/>
@@ -15,15 +16,15 @@
     </Window.Resources>
     
     <DockPanel>
-        <WrapPanel x:Name="PanelMenu" DockPanel.Dock="Top" Height="25">
-            <Button x:Name="BtnCreate" Content="Create"/>
-            <Button x:Name="BtnEdit" Content="Edit"/>
-            <Button x:Name="BtnAbout" Content="About"/>
-            <Button x:Name="Exit" Content="Exit"/>
+        <WrapPanel x:Name="PanelMenu" DockPanel.Dock="Top" Height="Auto">
+            <Button x:Name="BtnCreate" Content="Create" Style="{StaticResource DefaultButtonStyle}"/>
+            <Button x:Name="BtnEdit" Content="Edit" Style="{StaticResource DefaultButtonStyle}"/>
+            <Button x:Name="BtnAbout" Content="About" Style="{StaticResource DefaultButtonStyle}"/>
+            <Button x:Name="Exit" Content="Exit" Style="{StaticResource DefaultButtonStyle}"/>
         </WrapPanel>
 
         <ListBox x:Name="ListCurriculums" DockPanel.Dock="Left" Width="100"
-                 ItemsSource="{Binding PersonItems}">
+                 ItemsSource="{Binding PersonItems}" Style="{StaticResource DefaultListBoxStyle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -33,7 +34,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ScrollViewer Height="Auto" Width="Auto" HorizontalAlignment="Right" MinWidth="500">
+        <ScrollViewer Height="Auto" Width="544" HorizontalAlignment="Right" MinWidth="500" Style="{StaticResource DefaultScrollViewerStyle}">
             <ContentControl x:Name="ContentControl" Width="Auto" 
                             Content="{Binding CurrentView}"/>
         </ScrollViewer>

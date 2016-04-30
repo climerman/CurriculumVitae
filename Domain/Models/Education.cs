@@ -8,6 +8,7 @@ namespace Domain.Models
     {
         public int EducationId { get; set; }
         public string EducationValue { get; set; }
+
         public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
 

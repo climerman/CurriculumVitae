@@ -8,6 +8,5 @@ namespace BLL
     public interface IPersonService
     {
         List<Person> LoadPersons();
-
     }
 }

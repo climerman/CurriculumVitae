@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Threading.Tasks;
 using DAL.Interfaces;
 
 namespace DAL.Repositories
@@ -44,7 +45,7 @@ namespace DAL.Repositories
 
         public T Get(int id) => DbSet.Find(id);
 
-        public List<T> GetAll() => DbSet.ToList();
+        public List<T> GetAll() => DbSet.ToList(); 
 
         public void Update(T obj)
         {

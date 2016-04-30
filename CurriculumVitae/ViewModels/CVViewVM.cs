@@ -10,8 +10,6 @@ namespace CurriculumVitae.ViewModels
 {
     public class CVViewVM : ViewModelBase
     {
-        private IPersonService _personService;
-        private Person _person;
         private ObservableCollection<Contact> _contactItems;
         private ObservableCollection<Education> _educationItems;
         private ObservableCollection<Experience> _experienceItems;
@@ -65,7 +63,6 @@ namespace CurriculumVitae.ViewModels
 
         public CVViewVM()
         {
-            _personService = new PersonService();
             _contactItems = new ObservableCollection<Contact>();
             _educationItems = new ObservableCollection<Education>();
             _experienceItems = new ObservableCollection<Experience>();

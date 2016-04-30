@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Domain.Models
 {
@@ -7,6 +8,6 @@ namespace Domain.Models
         public int ContactTypeId { get; set; }
         public string ContactTypeName { get; set; }
 
-        public virtual List<Contact> Contacts { get; set; }
+        public virtual ObservableCollection<Contact> Contacts { get; set; }
     }
 }
