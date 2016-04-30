@@ -36,6 +36,35 @@ namespace CurriculumVitae
             _vm.LoadData();
             DataContext = _vm;
         }
-        
+
+        private void ThrowButtonNotImplementedMessage()
+        {
+            MessageBoxResult result = MessageBox.Show("Nupp pole veel implementeeritud", "", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        private void BtnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            ThrowButtonNotImplementedMessage();
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            ThrowButtonNotImplementedMessage();
+        }
+
+        private void BtnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            ThrowButtonNotImplementedMessage();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Exit application?", "Confirmation", MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 }

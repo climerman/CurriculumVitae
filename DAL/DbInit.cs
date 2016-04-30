@@ -71,6 +71,8 @@ namespace DAL
             var soiduId = ctx.SkillTypes.FirstOrDefault(x => x.SkillTypeName == "Sõiduoskus")?.SkillTypeId ?? 0;
             var arvutiId = ctx.SkillTypes.FirstOrDefault(x => x.SkillTypeName == "Arvutioskus")?.SkillTypeId ?? 0;
 
+            // Enda CV seed
+
             ctx.Persons.Add(new Person()
             {
                 Firstname = "Marko",
@@ -93,7 +95,10 @@ namespace DAL
                 Experiences = new ObservableCollection<Experience>()
                 {
                     new Experience() {ExperienceValue = "Klienditeenindaja", Institute = "Statoil", ExperienceTypeId = tooId, FromDate = new DateTime(2014, 3, 1), ToDate = new DateTime(2014, 10, 16)},
-                    new Experience() {ExperienceValue = "Monitoorija / Helpdesk operaator", Institute = "Danske Bank", ExperienceTypeId = tooId, FromDate = new DateTime(2014, 10, 17), ToDate = null}
+                    new Experience() {ExperienceValue = "Monitoorija / Helpdesk operaator", Institute = "Danske Bank", ExperienceTypeId = tooId, FromDate = new DateTime(2014, 10, 17), ToDate = null},
+                    new Experience() {ExperienceValue = "Klienditeenindaja", Institute = "AD Baltic", ExperienceTypeId = tooId, FromDate = new DateTime(2011, 6, 1), ToDate = new DateTime(2011, 7, 30)},
+                    new Experience() {ExperienceValue = "Klienditeenindaja", Institute = "AD Baltic", ExperienceTypeId = tooId, FromDate = new DateTime(2012, 7, 1), ToDate = new DateTime(2012, 8, 30)},
+                    new Experience() {ExperienceValue = "Klienditeenindaja", Institute = "AD Baltic", ExperienceTypeId = tooId, FromDate = new DateTime(2013, 6, 1), ToDate = new DateTime(2013, 8, 30)}
                 },
                 Skills = new ObservableCollection<Skill>()
                 {
@@ -103,6 +108,46 @@ namespace DAL
                     new Skill() {SkillValue = "Java", SkillRating = "Keskmine", SkillTypeId = arvutiId},
                     new Skill() {SkillValue = "C", SkillRating = "Rahuldav", SkillTypeId = arvutiId},
                     new Skill() {SkillValue = "SQL", SkillRating = "Rahuldav", SkillTypeId = arvutiId}
+                }
+            });
+
+            ctx.SaveChanges();
+
+            //Mingi mock CV seed.
+
+            ctx.Persons.Add(new Person()
+            {
+                Firstname = "Ester",
+                Lastname = "Tester",
+                Sex = Sex.Female,
+                BirthDate = new DateTime(1989, 4, 11),
+                Contacts = new ObservableCollection<Contact>()
+                {
+                    new Contact() {ContactValue = "555555555", ContactTypeId = telefonId},
+                    new Contact() {ContactValue = "tester@ester.net", ContactTypeId = emailId}
+                },
+                Educations = new ObservableCollection<Education>()
+                {
+                    new Education() {EducationValue = "Keila Gümnaasium", EducationTypeId = pohiharidusId, FromDate = new DateTime(1995, 9, 1), ToDate = new DateTime(2004, 6, 22)},
+                    new Education() {EducationValue = "Tallinna Inglise Kolledž", EducationTypeId = keskharidusId, FromDate = new DateTime(2005, 9, 1), ToDate = new DateTime(2008, 6, 22)},
+                    new Education() {EducationValue = "Eesti Infotehnoloogia Kolledž, Arenduse eriala", EducationTypeId = korgharidusId, FromDate = new DateTime(2009, 9, 1), ToDate = new DateTime(2014, 9, 1)}
+                },
+                Experiences = new ObservableCollection<Experience>()
+                {
+                    new Experience() {ExperienceValue = "Klienditeenindaja", Institute = "Rademar", ExperienceTypeId = tooId, FromDate = new DateTime(2012, 3, 1), ToDate = null}
+                },
+                Skills = new ObservableCollection<Skill>()
+                {
+                    new Skill() {SkillValue = "Inglise keel", SkillRating = "Väga hea", SkillTypeId = keeleId},
+                    new Skill() {SkillValue = "Sõiduoskus", SkillRating = "A1, B", SkillTypeId = soiduId},
+                    new Skill() {SkillValue = "C#", SkillRating = "Keskmine", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "Java", SkillRating = "Keskmine", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "C", SkillRating = "Rahuldav", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "SQL", SkillRating = "Rahuldav", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "Automaattestimine", SkillRating = "Spetsialist", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "Office programmid", SkillRating = "Spetsialist", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "Javascript", SkillRating = "Spetsialist", SkillTypeId = arvutiId},
+                    new Skill() {SkillValue = "HTML", SkillRating = "Spetsialist", SkillTypeId = arvutiId}
                 }
             });
 

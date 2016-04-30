@@ -2,6 +2,18 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:CurriculumVitae">
 
+    <Style x:Key="DefaultWindowStyle" TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="SlateGray"/>
+    </Style>
+
+    <Style x:Key="DefaultContentStyle" TargetType="{x:Type UserControl}">
+        <Setter Property="Background" Value="LightSlateGray"/>
+    </Style>
+
+    <Style x:Key="DefaultLabelStyle" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
     <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="5,5,5,5"/>
         <Setter Property="Padding" Value="5,5,5,5"/>
@@ -9,21 +21,11 @@
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
-    <Style x:Key="DefaultWindowStyle" TargetType="{x:Type Window}">
+    <Style x:Key="DefaultListBoxStyle" TargetType="{x:Type ListBox}">
         <Setter Property="Background" Value="SlateGray"/>
     </Style>
 
-    <Style x:Key="DefaultScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                    <Border Background="SlateGray" />
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="DefaultListBoxStyle" TargetType="{x:Type ListBox}">
+    <Style x:Key="DefaultListViewStyle" TargetType="{x:Type ListView}">
         <Setter Property="Background" Value="SlateGray"/>
     </Style>
     

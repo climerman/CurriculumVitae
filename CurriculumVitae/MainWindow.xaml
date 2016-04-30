@@ -8,6 +8,7 @@
         xmlns:view="clr-namespace:CurriculumVitae.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="650" Loaded="Window_Loaded" ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
         Style="{StaticResource DefaultWindowStyle}">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:CVViewVM}">
@@ -17,10 +18,10 @@
     
     <DockPanel>
         <WrapPanel x:Name="PanelMenu" DockPanel.Dock="Top" Height="Auto">
-            <Button x:Name="BtnCreate" Content="Create" Style="{StaticResource DefaultButtonStyle}"/>
-            <Button x:Name="BtnEdit" Content="Edit" Style="{StaticResource DefaultButtonStyle}"/>
-            <Button x:Name="BtnAbout" Content="About" Style="{StaticResource DefaultButtonStyle}"/>
-            <Button x:Name="Exit" Content="Exit" Style="{StaticResource DefaultButtonStyle}"/>
+            <Button x:Name="BtnCreate" Content="Create" Style="{StaticResource DefaultButtonStyle}" Click="BtnCreate_Click"/>
+            <Button x:Name="BtnEdit" Content="Edit" Style="{StaticResource DefaultButtonStyle}" Click="BtnEdit_Click"/>
+            <Button x:Name="BtnAbout" Content="About" Style="{StaticResource DefaultButtonStyle}" Click="BtnAbout_Click"/>
+            <Button x:Name="Exit" Content="Exit" Style="{StaticResource DefaultButtonStyle}" Click="Exit_Click"/>
         </WrapPanel>
 
         <ListBox x:Name="ListCurriculums" DockPanel.Dock="Left" Width="100"
@@ -34,8 +35,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ScrollViewer Height="Auto" Width="544" HorizontalAlignment="Right" MinWidth="500" Style="{StaticResource DefaultScrollViewerStyle}">
-            <ContentControl x:Name="ContentControl" Width="Auto" 
+        <ScrollViewer Height="Auto" HorizontalAlignment="Right" MinWidth="500" MaxHeight="550">
+            <ContentControl x:Name="ContentControl" Width="Auto"
                             Content="{Binding CurrentView}"/>
         </ScrollViewer>
     </DockPanel>
