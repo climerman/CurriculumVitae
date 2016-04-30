@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using BLL;
 using BLL.Services;
 using Domain.Models;
@@ -44,7 +45,7 @@ namespace CurriculumVitae.ViewModels
 
         public void LoadData()
         {
-            //LoadPersons();
+            _personItems = new ObservableCollection<Person>(_personService.LoadPersons());
             CreateMockData();
         }
 
@@ -55,7 +56,7 @@ namespace CurriculumVitae.ViewModels
                 Firstname = "Ester",
                 Lastname = "Tester",
                 Sex = Sex.Female,
-                Contacts = new List<Contact>()
+                Contacts = new ObservableCollection<Contact>()
                 {
                     new Contact()
                     {
@@ -68,10 +69,6 @@ namespace CurriculumVitae.ViewModels
                 }
             });
         }
-
-        private void LoadPersons()
-        {
-            _personService.GetAll();
-        }
+  
     }
 }

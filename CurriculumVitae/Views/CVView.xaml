@@ -6,33 +6,30 @@
              xmlns:local="clr-namespace:CurriculumVitae"
              xmlns:ViewModels="clr-namespace:CurriculumVitae.ViewModels" x:Class="CurriculumVitae.Views.CVView"
              mc:Ignorable="d" 
-             d:DesignHeight="325" d:DesignWidth="400">
+             d:DesignHeight="400" d:DesignWidth="500">
     <Grid x:Name ="ViewContent" Visibility="Visible" DataContext="{Binding SelectedItem, ElementName=ListCurriculums}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition Height="Auto" MinHeight="50"/>
+            <RowDefinition Height="Auto" MinHeight="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="labelName" Content="Name: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,0,10,0" Height="25"/>
-        <Label x:Name="labelSex" Content="Sex: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,26,10,0" Height="25"/>
-        <Label x:Name="labelDoB" Content="Date of Birth: " HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0" Margin="0,51,10,11" Height="25"/>
-        <TextBlock x:Name="txtViewName" Text="{Binding FirstLastname}"  HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-        <TextBlock x:Name="txtViewSex" Text="{Binding Sex}"  HorizontalAlignment="Left" Margin="10,31,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-        <TextBlock x:Name="txtViewDoB" Text="{Binding BirthDate}"  HorizontalAlignment="Left" Margin="10,56,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25"/>
-        <Label x:Name="labelContact" Content="Contact: " HorizontalAlignment="Left" Margin="33,0,0,0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.158,-0.077"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" Width="200">
-            <ListView x:Name="listViewContacts" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="183"
-				ItemsSource="{Binding ContactItems}">
-                <ListView.DataContext>
-                    <ViewModels:CVViewVM/>
-                </ListView.DataContext>
+        <Label x:Name="labelName" Content="Name: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,0,10,0" Height="25" Width="48"/>
+        <Label x:Name="labelSex" Content="Sex: " HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="0,26,10,0" Height="25" Width="34"/>
+        <Label x:Name="labelDoB" Content="Date of Birth: " HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0" Margin="0,52,10,12" Width="83"/>
+        <TextBlock x:Name="txtViewName" Text="{Binding FirstLastname}"  HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
+        <TextBlock x:Name="txtViewSex" Text="{Binding Sex}"  HorizontalAlignment="Left" Margin="10,31,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
+        <TextBlock x:Name="txtViewDoB" Text="{Binding BirthDate}"  HorizontalAlignment="Left" Margin="10,56,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
+        <Label x:Name="labelContact" Content="Contact: " HorizontalAlignment="Left" Margin="41,0,0,0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.158,-0.077" Height="25" Width="57"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListView x:Name="listViewContacts" HorizontalAlignment="Stretch" Height="Auto" MaxHeight="150" VerticalAlignment="Top" Width="Auto"
+				ItemsSource="{Binding Contacts}">
                 <ListView.View>
                     <GridView>
                         <GridView.ColumnHeaderContainerStyle>
@@ -40,15 +37,15 @@
                                 <Setter Property="UIElement.Visibility" Value="Collapsed"/>
                             </Style>
                         </GridView.ColumnHeaderContainerStyle>
-                        <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding ContactValue}"/>
-                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding ContactType.ContactTypeName}"/>
+                        <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding ContactValue}" Width="Auto"/>
+                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding ContactType.ContactTypeName}" Width="Auto"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </ScrollViewer>
-        <Label x:Name="labelEducation" Content="Education: " HorizontalAlignment="Left" Margin="22,0,0,0" Grid.Column="0"  Grid.Row="2" VerticalAlignment="Top"/>
-        <ListView x:Name="listViewEducation"  HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="183" Grid.Column="1" Grid.Row="2"
-			ItemsSource="{Binding EducationItems}">
+        <Label x:Name="labelEducation" Content="Education: " HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Column="0"  Grid.Row="2" VerticalAlignment="Top" Height="26" Width="68"/>
+        <ListView x:Name="listViewEducation"  HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="2"
+			ItemsSource="{Binding Educations}">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
@@ -62,9 +59,9 @@
             </ListView.View>
         </ListView>
 
-        <Label x:Name="labelExperience" Content="Experience: " HorizontalAlignment="Left" Margin="17,0,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        <ListView x:Name="listViewExperience"  HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="183" Grid.Column="1" Grid.Row="3"
-			ItemsSource="{Binding ExperienceItems}">
+        <Label x:Name="labelExperience" Content="Experience: " HorizontalAlignment="Left" Margin="25,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="73"/>
+        <ListView x:Name="listViewExperience"  HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="3"
+			ItemsSource="{Binding Experiences}">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
@@ -77,9 +74,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label x:Name="labelSkills" Content="Skills: " Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="48,0,0,0"  VerticalAlignment="Top"/>
-        <ListView x:Name="listViewSkills"  HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top" Width="183" Grid.Column="1" Grid.Row="4"
-			ItemsSource="{Binding SkillItems}">
+        <Label x:Name="labelSkills" Content="Skills: " Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="56,0,0,0"  VerticalAlignment="Top" Height="26" Width="42"/>
+        <ListView x:Name="listViewSkills"  HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="4"
+			ItemsSource="{Binding Skills}">
             <ListView.View>
                 <GridView>
                     <GridView.ColumnHeaderContainerStyle>
@@ -87,7 +84,7 @@
                             <Setter Property="UIElement.Visibility" Value="Collapsed"/>
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
-                    <GridViewColumn Header="" DisplayMemberBinding="{Binding SkillValue}"/>
+                    <GridViewColumn Header="Skill" DisplayMemberBinding="{Binding SkillValue}"/>
                     <GridViewColumn Header="Type" DisplayMemberBinding="{Binding SkillType.SkillTypeName}"/>
                 </GridView>
             </ListView.View>

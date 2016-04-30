@@ -1,4 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Documents;
 using BLL;
 using BLL.Services;
 using Domain.Models;
@@ -8,6 +11,7 @@ namespace CurriculumVitae.ViewModels
     public class CVViewVM : ViewModelBase
     {
         private IPersonService _personService;
+        private Person _person;
         private ObservableCollection<Contact> _contactItems;
         private ObservableCollection<Education> _educationItems;
         private ObservableCollection<Experience> _experienceItems;
@@ -66,10 +70,6 @@ namespace CurriculumVitae.ViewModels
             _educationItems = new ObservableCollection<Education>();
             _experienceItems = new ObservableCollection<Experience>();
             _skillItems = new ObservableCollection<Skill>();
-        }
-
-        private void LoadPersonData()
-        {
         }
     }
 }

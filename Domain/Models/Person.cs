@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Domain.Models
 {
@@ -11,10 +12,10 @@ namespace Domain.Models
         public Sex? Sex { get; set; }
         public DateTime? BirthDate { get; set; }
 
-        public virtual List<Contact> Contacts { get; set; }
-        public virtual List<Education> Educations { get; set; }
-        public virtual List<Experience> Experiences { get; set; }
-        public virtual List<Skill> Skills { get; set; }
+        public virtual ObservableCollection<Contact> Contacts { get; set; }
+        public virtual ObservableCollection<Education> Educations { get; set; }
+        public virtual ObservableCollection<Experience> Experiences { get; set; }
+        public virtual ObservableCollection<Skill> Skills { get; set; }
 
         public string FirstLastname => Firstname + " " + Lastname;
     }
@@ -22,6 +23,8 @@ namespace Domain.Models
     public enum Sex
     {
         Male = 1,
-        Female
+        Female = 2
     }
+
+
 }

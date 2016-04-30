@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CurriculumVitae.ViewModels;
+using Domain.Models;
 
 namespace CurriculumVitae
 {
@@ -35,5 +36,6 @@ namespace CurriculumVitae
             _vm.LoadData();
             DataContext = _vm;
         }
+        
     }
 }

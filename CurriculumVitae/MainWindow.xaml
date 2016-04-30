@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:CurriculumVitae.ViewModels"
         xmlns:view="clr-namespace:CurriculumVitae.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="MainWindow" Height="500" Width="650" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:CVViewVM}">
             <view:CVView/>
@@ -27,14 +27,14 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Firstname}"/>
+                        <TextBlock Text="{Binding FirstLastname}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ScrollViewer Height="Auto" Width="Auto">
-            <ContentControl x:Name="ContentControl" 
+        <ScrollViewer Height="Auto" Width="Auto" HorizontalAlignment="Right" MinWidth="500">
+            <ContentControl x:Name="ContentControl" Width="Auto" 
                             Content="{Binding CurrentView}"/>
         </ScrollViewer>
     </DockPanel>

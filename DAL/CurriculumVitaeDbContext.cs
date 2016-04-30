@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using DAL.Interfaces;
 using Domain.Models;
 
@@ -22,5 +24,12 @@ namespace DAL
         public IDbSet<ExperienceType> ExperienceTypes { get; set; }
         public IDbSet<Skill> Skills { get; set; }
         public IDbSet<SkillType> SkillTypes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 }

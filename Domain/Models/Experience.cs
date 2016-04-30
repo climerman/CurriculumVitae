@@ -10,7 +10,7 @@ namespace Domain.Models
 
         public string Institute { get; set; }
 
-        public DateTime FromDate { get; set; }
+        public DateTime? FromDate { get; set; }
         public DateTime? ToDate { get; set; }
 
         [ForeignKey(nameof(ExperienceType))]

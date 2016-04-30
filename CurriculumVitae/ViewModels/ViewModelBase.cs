@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using CurriculumVitae.Annotations;
+using Domain.Models;
 
 namespace CurriculumVitae.ViewModels
 {

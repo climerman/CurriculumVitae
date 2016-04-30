@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CurriculumVitae.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="325" d:DesignWidth="400">
+             d:DesignHeight="325" d:DesignWidth="400"
+             DataContext="{Binding SelectedItem, ElementName=ListCurriculums}">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Width="Auto">
             <Button x:Name="btnContact" Content="Contacts"/>
@@ -28,7 +29,7 @@
                 
                 <Button x:Name="btnSaveContactEdit" Content="SaveChanges"/>
             </StackPanel>
-            <ListBox Grid.Column="1" ItemsSource="{Binding ContactItems}">
+            <ListBox Grid.Column="1" ItemsSource="{Binding Contacts}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
