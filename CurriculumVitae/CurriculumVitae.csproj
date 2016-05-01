@@ -65,19 +65,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\CVViewVM.cs" />
-    <Compile Include="Views\CVEdit.xaml.cs">
-      <DependentUpon>CVEdit.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\CVView.xaml.cs">
       <DependentUpon>CVView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="Assets\MainDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\CVEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

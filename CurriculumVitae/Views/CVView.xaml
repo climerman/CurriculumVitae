@@ -33,24 +33,22 @@
         <Label x:Name="labelDoB" Content="Date of Birth: " HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0" Margin="0,52,10,12" Width="83" Style="{StaticResource DefaultLabelStyle}"/>
         <TextBlock x:Name="txtViewName" Text="{Binding FirstLastname}"  HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto" />
         <TextBlock x:Name="txtViewSex" Text="{Binding Sex}"  HorizontalAlignment="Left" Margin="10,31,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
-        <TextBlock x:Name="txtViewDoB" Text="{Binding BirthDate}"  HorizontalAlignment="Left" Margin="10,56,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
+        <TextBlock x:Name="txtViewDoB" Text="{Binding BirthDate, StringFormat='{}{0:yyyy}'}"  HorizontalAlignment="Left" Margin="10,56,0,0" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="Auto"/>
         <Label x:Name="labelContact" Content="Contact: " HorizontalAlignment="Left" Margin="41,0,0,0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.158,-0.077" Height="25" Width="57" Style="{StaticResource DefaultLabelStyle}"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="1" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <ListView x:Name="listViewContacts" HorizontalAlignment="Stretch" Height="Auto" MaxHeight="150" VerticalAlignment="Top" Width="Auto"
+        <ListView x:Name="listViewContacts" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="1"
 				ItemsSource="{Binding Contacts}" Style="{StaticResource DefaultListViewStyle}">
-                <ListView.View>
-                    <GridView>
-                        <GridView.ColumnHeaderContainerStyle>
-                            <Style>
-                                <Setter Property="UIElement.Visibility" Value="Collapsed"/>
-                            </Style>
-                        </GridView.ColumnHeaderContainerStyle>
-                        <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding ContactValue}" Width="Auto"/>
-                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding ContactType.ContactTypeName}" Width="Auto"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </ScrollViewer>
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style>
+                            <Setter Property="UIElement.Visibility" Value="Collapsed"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    <GridViewColumn Header="Contact" DisplayMemberBinding="{Binding ContactValue}"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding ContactType.ContactTypeName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Label x:Name="labelEducation" Content="Education: " HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Column="0"  Grid.Row="2" VerticalAlignment="Top" Height="26" Width="68" Style="{StaticResource DefaultLabelStyle}"/>
         <ListView x:Name="listViewEducation"  HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top" Width="Auto" Grid.Column="1" Grid.Row="2"
 			ItemsSource="{Binding Educations}" Style="{StaticResource DefaultListViewStyle}">
